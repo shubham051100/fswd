@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showContent(section) {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('analytics').classList.add('hidden');
+            document.getElementById('reports').classList.add('hidden');
+            document.getElementById('settings').classList.add('hidden');
+            document.getElementById(section).classList.remove('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white p-5 hidden md:block">
+            <h2 class="text-xl font-bold">Dashboard</h2>
+            <ul class="mt-6 space-y-4">
+                <li><a href="#" class="block p-2 bg-gray-700 rounded" onclick="showContent('home')">Home</a></li>
+                <li><a href="#" class="block p-2 hover:bg-gray-700 rounded" onclick="showContent('analytics')">Analytics</a></li>
+                <li><a href="#" class="block p-2 hover:bg-gray-700 rounded" onclick="showContent('reports')">Reports</a></li>
+                <li><a href="#" class="block p-2 hover:bg-gray-700 rounded" onclick="showContent('settings')">Settings</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Navbar -->
+            <nav class="bg-white shadow p-4 flex justify-between items-center">
+                <button class="md:hidden bg-gray-800 text-white p-2 rounded">Menu</button>
+                <h1 class="text-xl font-bold">Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <input type="text" placeholder="Search..." class="p-2 border rounded">
+                    <span class="p-2 bg-gray-300 rounded-full">👤</span>
+                </div>
+            </nav>
+            
+            <!-- Dashboard Content -->
+            <main class="p-6">
+                <div id="home">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-5 rounded shadow">
+                            <h3 class="text-lg font-bold">Total Sales</h3>
+                            <p class="text-xl">$50,000</p>
+                        </div>
+                        <div class="bg-white p-5 rounded shadow">
+                            <h3 class="text-lg font-bold">New Users</h3>
+                            <p class="text-xl">1,200</p>
+                        </div>
+                        <div class="bg-white p-5 rounded shadow">
+                            <h3 class="text-lg font-bold">Active Sessions</h3>
+                            <p class="text-xl">320</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="analytics" class="hidden">
+                    <div class="bg-white p-5 rounded shadow">
+                        <h3 class="text-lg font-bold">User Growth</h3>
+                        <p class="text-xl">+15% this month</p>
+                        <h3 class="text-lg font-bold mt-4">Revenue Increase</h3>
+                        <p class="text-xl">+20% compared to last quarter</p>
+                        <h3 class="text-lg font-bold mt-4">Bounce Rate</h3>
+                        <p class="text-xl">12.5%</p>
+                    </div>
+                </div>
+                <div id="reports" class="hidden">
+                    <div class="bg-white p-5 rounded shadow">Reports Data</div>
+                </div>
+                <div id="settings" class="hidden">
+                    <div class="bg-white p-5 rounded shadow">Settings Data</div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
